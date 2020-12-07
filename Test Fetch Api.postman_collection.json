@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "5c04e475-f865-4973-a2c9-0938d31f0157",
+		"name": "Test Fetch Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Danner 300",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payer\":\"{{dan}}\",\r\n    \"points\":300,\r\n    \"transactionDate\":\"2020-10-31T10:00:00.0Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{port}}/points/add/{{TestUser}}",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"points",
+						"add",
+						"{{TestUser}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Uni 200",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payer\":\"{{uni}}\",\r\n    \"points\":200,\r\n    \"transactionDate\":\"2020-10-31T11:00:00.0Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{port}}/points/add/{{TestUser}}",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"points",
+						"add",
+						"{{TestUser}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Danner -200",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payer\":\"{{dan}}\",\r\n    \"points\":-200,\r\n    \"transactionDate\":\"2020-10-31T15:00:00.0Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{port}}/points/add/{{TestUser}}",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"points",
+						"add",
+						"{{TestUser}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Miller 10000",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payer\":\"{{mill}}\",\r\n    \"points\":10000,\r\n    \"transactionDate\":\"2020-11-01T14:00:00.0Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{port}}/points/add/{{TestUser}}",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"points",
+						"add",
+						"{{TestUser}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Danner 1000",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payer\":\"{{dan}}\",\r\n    \"points\":1000,\r\n    \"transactionDate\":\"2020-11-02T14:00:00.0Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{port}}/points/add/{{TestUser}}",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"points",
+						"add",
+						"{{TestUser}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}{{port}}/points/{{TestUser}}",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"points",
+						"{{TestUser}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deduct 5000",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"points\":5000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{port}}/points/deduct/{{TestUser}}",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"points",
+						"deduct",
+						"{{TestUser}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clear",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}{{port}}/points/clear",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"points",
+						"clear"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1eadd6ab-d55f-454a-a2ce-ba429c4138d5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "19efecfc-b116-43bd-974f-aee791908734",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3d755c21-8ac8-445d-999b-6a95a55daa91",
+			"key": "url",
+			"value": "https://localhost:"
+		},
+		{
+			"id": "3ace2819-cc6e-40ba-b057-39c9c0e75120",
+			"key": "port",
+			"value": "5001"
+		},
+		{
+			"id": "7a07d23d-b6b8-4cc7-84fd-8ef3cc465b4e",
+			"key": "TestUser",
+			"value": "TestUser"
+		},
+		{
+			"id": "c4d95803-d720-4558-9d5c-5153f14a7f4a",
+			"key": "dan",
+			"value": "DANNON"
+		},
+		{
+			"id": "d24100d8-6e0e-4785-a7c2-6161d679df0b",
+			"key": "uni",
+			"value": "UNILEVER"
+		},
+		{
+			"id": "7c2fd062-0c54-4bbb-aa57-83faca1b726f",
+			"key": "mill",
+			"value": "MILLER COORS"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
