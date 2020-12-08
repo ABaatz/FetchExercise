@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FetchExercise.Controllers
 {
@@ -25,14 +24,21 @@ namespace FetchExercise.Controllers
             try
             {
                 var userObject = GetUser(user);
-                userObject.AddPoints(request);
-                return Ok();
+                if (request.IsValid)
+                {
+                    userObject.AddPoints(request);
+                    return Ok();
+                }
+                else
+                {
+                    return new BadRequestObjectResult("Request has an invalid format.");
+                }
             }
             catch (Exception e)
             {
                 if (e is InvalidOperationException || e is ArgumentException)
                 {
-                    return new BadRequestResult();
+                    return new BadRequestObjectResult("The request is invalid.");
                 }
                 throw;
             }
@@ -57,7 +63,7 @@ namespace FetchExercise.Controllers
             {
                 if (e is InvalidOperationException || e is ArgumentException)
                 {
-                    return new BadRequestResult();
+                    return new BadRequestObjectResult("The request is invalid.");
                 }
                 throw;
             }
@@ -101,6 +107,10 @@ namespace FetchExercise.Controllers
             if (string.IsNullOrWhiteSpace(user))
             {
                 throw new ArgumentException("User cannot be null or whitespace.");
+            }
+            if (Startup.Users == null)
+            {
+                Startup.Users = new List<User>();
             }
             if (!Startup.Users.Any(u => u.Name == user))
             {

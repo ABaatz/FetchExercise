@@ -1,16 +1,16 @@
-﻿using FetchExercise.Requests;
+﻿
+using FetchExercise.Requests;
 using FetchExercise.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FetchExercise.Models
 {
     public class User
     {
-        public string Name { get; private set; }
-        public List<InternalTransactionRecord> TransactionHistory { get; private set; }
+        public string Name { get; internal set; }
+        public List<InternalTransactionRecord> TransactionHistory { get; internal set; }
 
         public User(string name)
         {
@@ -43,6 +43,10 @@ namespace FetchExercise.Models
         /// <param name="transactionDate">Optional datetime to specify a date to be logged</param>
         public DeductPointsResponse DeductPoints(DeductPointsRequest request, DateTime? transactionDate = null)
         {
+            if (request.Points < 0)
+            {
+                throw new ArgumentException("Cannot remove negative points.");
+            }
             var deductionRecords = new List<TransactionRecord>();
             var tempPoints = request.Points;
             while (tempPoints > 0)

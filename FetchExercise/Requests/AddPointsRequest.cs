@@ -7,5 +7,13 @@ namespace FetchExercise.Requests
         public string Payer { get; set; }
         public int Points { get; set; }
         public DateTime TransactionDate { get; set; }
+
+        internal bool IsValid
+        {
+            get
+            {
+                return !(string.IsNullOrWhiteSpace(Payer) || TransactionDate == new DateTime());
+            }
+        }
     }
 }
