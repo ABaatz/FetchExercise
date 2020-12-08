@@ -1,12 +1,11 @@
 # FetchExercise
 ## Fetch Rewards Coding Exercise - 12/7/20
-```
-Run Executable in FetchExercise\bin\Debug\netcoreapp3.1 to start the web server.
 
-URL is https://localhost:5001 or https://localhost:5000
+Run Executable in `FetchExercise\bin\Debug\netcoreapp3.1` to start the web server.  
+URL is `https://localhost:5001`(default) or `https://localhost:5000`
 
 Test endpoints with preferred testing tool. Postman collection is provided for ease.
-
+```
 Endpoints are:
   Add Points:
     (POST) /points/add/{user}
