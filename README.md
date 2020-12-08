@@ -29,4 +29,4 @@ Endpoints are:
 
   Clear current users in memory:
     (PATCH) /points/clear
-    ```
+```
